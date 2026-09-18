@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIMO CYBER & ACCESSORIES</title>
+    <style>
+        html{
+            scroll-behavior: smooth;
+        }
+        body{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: 'Playfair Display', Tahoma, Geneva, Verdana, sans-serif;
+            background-color:#fff;
+            animation:page-fade-in 450ms ease both;
+        }
+        body.page-fade-out{
+            animation:page-fade-out 350ms ease both;
+        }
+        @keyframes page-fade-in{
+            from{opacity:0;}
+            to{opacity:1;}
+        }
+        @keyframes page-fade-out{
+            from{opacity:1;}
+            to{opacity:0;}
+        }
+        header{
+            display:block;
+            background-color:rgb(1, 1, 101);
+            color:white;
+            padding:0.75rem clamp(1rem, 4vw, 3rem);
+        }
+        .topbar{
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:1rem;
+            max-width:90rem;
+            margin:0 auto;
+        }
+        .title{
+            margin:0;
+            font-size:clamp(1.25rem, 2.5vw, 2rem);
+            font-weight:600;
+            letter-spacing:0;
+            line-height:1.1;
+        }
+        .bar{
+            display:inline-flex;
+            align-items:center;
+            gap:0.45rem;
+            padding:0.45rem 2rem;
+            border:1px solid rgba(255,255,255,0.35);
+            border-radius:999px;
+            background-color:#fff;
+            color:#666;
+            font-size:1rem;
+            font-weight:600;
+            white-space:nowrap;
+        }
+        .topbar p{
+            color:rgba(255,255,255,0.8);
+            font-size:0.8rem;
+            white-space:nowrap;
+        }
+        p{
+            margin:0;
+        }
+        .middle{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:clamp(1rem, 4vw, 4rem);
+            width:100%;
+            min-height:3rem;
+            padding:0.5rem 1rem;
+            box-sizing:border-box;
+            background-color:#f3f4f4;
+            color:#333;
+                    }
+                    .middle p{
+                        font-size:0.9rem;
+                        font-weight:800;
+                        color: #f28c28;
+                    }
+                    .middle h2{
+                        margin:0;
+                        font-size:1rem;
+                        font-weight:800;
+                        color:#f28c28;
+                    }
+                    .middle h5{
+                        margin:0;
+                        font-size:0.75rem;
+                        font-weight:600;
+                        color:#333;
+                    }
+                    .middle h3{
+                        margin:0;
+                        font-size:1rem;
+                        font-weight:600;
+                        color:#333;
+                    }
+                    .top-content{
+                        display:grid;
+                        grid-template-columns:auto minmax(16rem, 1fr) auto;
+                        align-items:center;
+                        gap:1.25rem;
+                        width:100%;
+                        min-height:5.5rem;
+                        padding:1rem clamp(1rem, 4vw, 3rem);
+                        box-sizing:border-box;
+                        background-color:#fff;
+                        box-shadow:0 2px 10px rgba(16,52,166,0.08);
+                    }
+                    .top-content-title{
+                        margin:0;
+                        padding:0;
+                        font-family:'Poppins', sans-serif;
+                        color:#1034a6;
+                        font-size:1.5rem;
+                        font-weight:900;
+                        line-height:1.2;
+                        white-space:nowrap;
+                    }
+                    .search-form{
+                        display:flex;
+                        width:100%;
+                        max-width:none;
+                        margin:0;
+                        border-radius:25px;
+                        overflow:hidden;
+                        background-color:#333;
+                    }
+                    .search-input{
+                        flex:1;
+                        min-width:0;
+                        padding:0.7rem 1rem 0.7rem 2.5rem;
+                        border:1px solid #d6d6d6;
+                        outline:none;
+                        font-size:1rem;
+                        background-color: #d6d6d6;
+                    }
+                    .search-field{
+                        position:relative;
+                        display:flex;
+                        flex:1;
+                        min-width:0;
+                    }
+                    .search-field .search-icon{
+                        position:absolute;
+                        top:50%;
+                        left:0.8rem;
+                        transform:translateY(-50%);
+                        color:#666;
+                    }
+                    .search-button{
+                        display:flex;
+                        align-items:center;
+                        gap:0.4rem;
+                        padding:0.75rem 1.25rem;
+                        border:0;
+                        background-color:#f28c28;
+                        color:#fff;
+                        font-size:1rem;
+                        font-weight:700;
+                        cursor:pointer;
+                    }
+                    .search-icon{
+                        font-size:1rem;
+                    }
+                    .top-actions{
+                        display:flex;
+                        align-items:center;
+                        gap:1rem;
+                        margin:0;
+                    }
+                    .action-button{
+                        display:flex;
+                        align-items:center;
+                        gap:0.35rem;
+                        padding:0.5rem 0.4rem;
+                        border:0;
+                        background:transparent;
+                        color:#484848;
+                        font-size:1rem;
+                        font-weight:500;
+                        white-space:nowrap;
+                        cursor:pointer;
+                    }
+                    @media (max-width: 1050px){
+                        .top-content{
+                            grid-template-columns:1fr auto;
+                        }
+                        .top-content-title{
+                            grid-column:1 / -1;
+                        }
+                    }
+                    @media (max-width: 640px){
+                        .topbar{
+                            flex-wrap:wrap;
+                        }
+                        .topbar p{
+                            display:none;
+                        }
+                        .middle{
+                            justify-content:flex-start;
+                            gap:1rem;
+                            overflow-x:auto;
+                        }
+                        .top-content{
+                            grid-template-columns:1fr;
+                            gap:0.85rem;
+                        }
+                        .top-content-title{
+                            grid-column:auto;
+                        }
+                        .top-actions{
+                            justify-content:space-between;
+                            width:100%;
+                        }
+                    }
+                    .action-icon{
+                        width:1.4rem;
+                        text-align:center;
+                    }
+                    .dropdown-icon{
+                        width:0.75rem;
+                        text-align:center;
+                    }
+
+   
+
+.explore-button {
+  background-color: #1a73e8;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-top: 15px;
+  box-shadow: 0 4px 6px rgba(26, 115, 232, 0.2);
+  transition: background 0.2s;
+}
+
+.explore-button:hover {
+  background-color: #1557b0;
+}
+
+
+.ticker-wrapper {
+  position: relative;
+  width: 100vw;
+  overflow: hidden;
+  padding: 20px 0;
+  background: #fdfdfd;
+  border-top: 1px solid #f1f5f9;
+  
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.service-links {
+  display: flex;
+  width: max-content;
+}
+
+.ticker-track {
+  display: flex;
+  align-items: center;
+  gap: 40px;                 
+  padding-right: 40px;       
+  animation: marquee 35s linear infinite; 
+}
+
+
+.service-links:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+.service-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #000;
+  white-space: nowrap;       
+  transition: color 0.2s ease;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.service-link:hover {
+  color: #1a73e8;            
+}
+
+.service-link i {
+  font-size: 18px;
+  color: #1a73e8;            
+}
+
+.service-link .link-text {
+  font-size: 15px;
+  letter-spacing: -0.2px;
+}
+
+
+.service-link::after {
+  content: "•";
+  color: #cbd5e1;
+  margin-left: 40px;
+  font-size: 14px;
+  pointer-events: none;
+}
+
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+
+.dot-indicator-bar {
+  position: absolute;
+  bottom: 4px;
+  left: 10%;
+  width: 80%; 
+  height: 4px;
+  background-image: radial-gradient(#cbd5e1 1.5px, transparent 1.5px);
+  background-size: 12px 4px;
+  background-repeat: repeat-x;
+}
+
+.dot-indicator-bar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#1a73e8 1.5px, transparent 1.5px);
+  background-size: 12px 4px;
+  background-repeat: repeat-x;
+  animation: dotsMove 35s linear infinite; 
+}
+
+.service-links:hover + .dot-indicator-bar::after {
+  animation-play-state: paused;
+}
+
+@keyframes dotsMove {
+  0% { background-position: 0px 0; }
+  100% { background-position: -300px 0; } 
+}
+
+
+@media (max-width: 767px) {
+  .ticker-track {
+    animation-duration: 25s; 
+  }
+  .dot-indicator-bar::after {
+    animation-duration: 25s;
+  }
+}
+
+                    
+                .main{
+                        display:flex;
+               flex-direction:column;
+                        align-items:center;
+                        width:100%;
+                        height:100%;
+                        background-color:#f3f4f4;
+                        margin-top:2rem;
+                    }
+                    .content{
+                        display:flex;
+                        flex-direction:column;
+                        align-items:center;
+                        justify-content:center;
+                        width:100%;
+                        max-width:60rem;
+                        padding:1.5rem 1rem;
+                        box-sizing:border-box;
+                        background-color:navy;
+                        color:#fff;
+                        margin-top:0.8rem;
+                        margin-bottom:0.7rem;
+                    }
+                    .content h3{
+                        font-size:2rem;
+                        font-weight:700;
+                        margin-bottom:1rem;
+                        font-family: 'Inter', Tahoma, Geneva, Verdana, sans-serif;
+                    }
+                    .content p{
+                        font-size:1.2rem;
+                        font-weight:500;
+                        margin-bottom:1.5rem;
+                    }
+                    .cards{
+                        display:flex;
+                        flex-direction:row;
+                        flex-wrap:wrap;
+                        justify-content:center;
+                        gap:1rem;
+                        width:100%;
+                        max-width:90%;
+                        padding:1.5rem 2rem;
+                        box-sizing:border-box;
+                        background-color:#f3f4f4;
+                    }
+                    .card{
+                        display:flex;
+                        flex:1 1 12rem;
+                        flex-direction:column;
+                        align-items:center;
+                        justify-content:center;
+                        min-height:12rem;
+                        padding:0.1rem;
+                        box-sizing:border-box;
+                        background-color:#fff;
+                        border-radius:12px;
+                        transition:transform 180ms ease, box-shadow 180ms ease;
+                    }
+                    .card:hover,
+                    .grid-card:hover{
+                        transform:translateY(-5px);
+                        box-shadow:0 10px 22px rgba(16,52,166,0.14);
+                    }
+                    .card img{
+                        width:100%;
+                        max-width:10rem;
+                        height:7rem;
+                        object-fit:contain;
+                    }
+                    .card h1{
+                        margin:0.75rem 0 0;
+                        font-size:1.25rem;
+                        font-weight:700;
+                        color:#111111;
+                        text-align:center;
+                    }
+                    .service-grid{
+                        display:grid;
+                        grid-template-columns:repeat(4, minmax(0, 1fr));
+                        gap:1rem;
+                        width:100%;
+                       
+                        padding:1rem;
+                        box-sizing:border-box;
+                        background-color:#f3f4f4;
+                    }
+                    .service-grid > h1{
+                        grid-column:1 / -1;
+                        margin:0;
+                        padding:1rem;
+                        background-color:#fff;
+                        color:#000;
+                        font-size:2.5rem;
+                        font-weight:700;
+                        text-align:center;
+                    }
+                    .grid-card{
+                        display:flex;
+                        flex-direction:column;
+                        align-items:center;
+                        min-width:0;
+                        padding:1rem;
+                        box-sizing:border-box;
+                        background-color:#fff;
+                        border-radius:8px;
+                        transition:transform 180ms ease, box-shadow 180ms ease;
+                    } 
+                    .grid-card img{
+                        width:100%;
+                        max-width:10rem;
+                        height:6rem;
+                        object-fit:contain;
+                    }
+                    .service-card-icon{
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                        width:6rem;
+                        height:6rem;
+                        color:#1034a6;
+                        font-size:3.5rem;
+                    }
+                    .grid-card h3{
+                        margin:0.75rem 0 0.5rem;
+                        color:#000;
+                        font-size:1.2rem;
+                        font-weight:700;
+                        text-align:center;
+                    }
+                    .grid-card p{
+                        min-height:4rem;
+                        margin:0;
+                        color:#666;
+                        font-size:0.95rem;
+                        line-height:1.5;
+                        text-align:center;
+                    }
+                    @media (prefers-reduced-motion: reduce){
+                        .card,
+                        .grid-card{
+                            transition:none;
+                        }
+                    }
+                    .grid-buttons{
+                        display:flex;
+                        gap:0.5rem;
+                        width:100%;
+                        margin-top:1rem;
+                        
+                    }
+                    .grid-buttons a{
+                        flex:1;
+                        padding:0.6rem 0.35rem;
+                        border-radius:25px;
+                        color:#fff;
+                        font-size:0.9rem;
+                        font-weight:500;
+                        text-align:center;
+                        text-decoration:none;
+                    }
+                    .grid-buttons a:first-child{
+                        background-color:#1034a6;
+                    }
+                    .grid-buttons a:last-child{
+                        background-color:#218739;
+                    }
+                    .view-services-button{
+                        grid-column:1 / -1;
+                        justify-self:center;
+                        padding:0.75rem 1.5rem;
+                        border-radius:25px;
+                        background-color:#f28c28;
+                        color:#fff;
+                        font-size:1rem;
+                        font-weight:500;
+                        text-decoration:none;
+                    }
+                    @media (max-width: 800px){
+                        .service-grid{
+                            grid-template-columns:repeat(2, minmax(0, 1fr));
+                        }
+                    }
+                    @media (max-width: 480px){
+                        .service-grid{
+                            grid-template-columns:1fr;
+                        }
+                    }
+                   
+  
+
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="topbar">
+            <h1 class="title">NIMO CYBER & ACCESSORIES</h1>
+            <span class="bar">60% off</span>
+            <p>Limited quality</p>
+        </div>
+    </header>
+    <div class="middle">
+        <p>Cyber Services & Sell Accessories on Nimo</p>
+        <h2>NIMO CYBER</h2>
+        <h5>PAY</h5>
+        <h3>DELIVERY</h3>
+    </div>
+    <div class="top-content">
+        <h1 class="top-content-title">NIMO CYBER & <br>ACCESSORIES</h1>
+        <form class="search-form" role="search">
+            <div class="search-field">
+                <i class="search-icon fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                <input class="search-input" type="search" placeholder="Search products, cyber services and accessories" aria-label="Search products">
+            </div>
+            <button class="search-button" type="submit">
+                Search
+            </button>
+        </form>
+        <nav class="top-actions" aria-label="Account and shopping links">
+            <button class="action-button" type="button">
+                <i class="action-icon fa-regular fa-circle-user" aria-hidden="true"></i>
+                Account
+                <i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <button class="action-button" type="button">
+                <i class="action-icon fa-regular fa-circle-question" aria-hidden="true"></i>
+                Help
+                <i class="dropdown-icon fa-solid fa-chevron-down" aria-hidden="true"></i>
+            </button>
+            <button class="action-button" type="button">
+                <i class="action-icon fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                Cart
+            </button>
+        </nav>
+    </div>
+    <div class="ticker-wrapper">
+  <nav class="service-links" aria-label="Services"> 
+    <!-- Track 1: First set of links -->
+    <div class="ticker-track">
+      <a class="service-link" href="#government-portal"> 
+        <i class="fa-solid fa-building-columns" aria-hidden="true"></i> 
+        <span class="link-text">Government & Digital Portal</span>
+      </a> 
+      <a class="service-link" href="#document-processing"> 
+        <i class="fa-solid fa-file-lines" aria-hidden="true"></i> 
+        <span class="link-text">Document Processing</span>
+      </a> 
+      <a class="service-link" href="#finishing-services"> 
+        <i class="fa-solid fa-scissors" aria-hidden="true"></i> 
+        <span class="link-text">Finishing Services</span>
+      </a> 
+      <a class="service-link" href="#maintenance"> 
+        <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> 
+        <span class="link-text">Maintenance</span>
+      </a> 
+      <a class="service-link" href="#paper-supplies"> 
+        <i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> 
+        <span class="link-text">Paper Supplies</span>
+      </a> 
+      <a class="service-link" href="#organization"> 
+        <i class="fa-solid fa-people-group" aria-hidden="true"></i> 
+        <span class="link-text">Organization</span>
+      </a> 
+      <a class="service-link" href="#stationery"> 
+        <i class="fa-solid fa-pen" aria-hidden="true"></i> 
+        <span class="link-text">Stationery</span>
+      </a> 
+      <a class="service-link" href="#computing-networking"> 
+        <i class="fa-solid fa-network-wired" aria-hidden="true"></i> 
+        <span class="link-text">Computing & Networking</span>
+      </a> 
+    </div>
+
+   
+    <div class="ticker-track mobile-only-track" aria-hidden="true">
+      <a class="service-link" href="#government-portal"> 
+        <i class="fa-solid fa-building-columns" aria-hidden="true"></i> 
+        <span class="link-text">Government & Digital Portal</span>
+      </a> 
+      <a class="service-link" href="#document-processing"> 
+        <i class="fa-solid fa-file-lines" aria-hidden="true"></i> 
+        <span class="link-text">Document Processing</span>
+      </a> 
+      <a class="service-link" href="#finishing-services"> 
+        <i class="fa-solid fa-scissors" aria-hidden="true"></i> 
+        <span class="link-text">Finishing Services</span>
+      </a> 
+      <a class="service-link" href="#maintenance"> 
+        <i class="fa-solid fa-screwdriver-wrench" aria-hidden="true"></i> 
+        <span class="link-text">Maintenance</span>
+      </a> 
+      <a class="service-link" href="#paper-supplies"> 
+        <i class="fa-solid fa-boxes-stacked" aria-hidden="true"></i> 
+        <span class="link-text">Paper Supplies</span>
+      </a> 
+      <a class="service-link" href="#organization"> 
+        <i class="fa-solid fa-people-group" aria-hidden="true"></i> 
+        <span class="link-text">Organization</span>
+      </a> 
+      <a class="service-link" href="#stationery"> 
+        <i class="fa-solid fa-pen" aria-hidden="true"></i> 
+        <span class="link-text">Stationery</span>
+      </a> 
+      <a class="service-link" href="#computing-networking"> 
+        <i class="fa-solid fa-network-wired" aria-hidden="true"></i> 
+        <span class="link-text">Computing & Networking</span>
+      </a> 
+    </div>
+  </nav>
+  
+  <div class="scroll-indicator"></div>
+</div>
+
+<div class="main"> 
+  <section class="content"> 
+    <h3>Welcome to NimoCyber Kenya</h3> 
+    <p>Fast internet, printing, and digital services for the Kenya community.</p> 
+    <button class="explore-button">Explore Services</button> 
+  </section> 
+</div>
+
+
+        <section class="cards">
+            <div class="card">
+                <img src="https://www.kra.go.ke/images/logo.png">
+                <h1>KRA</h1>
+            </div>
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyK20OElmP2tfCfD8_swu4CVVt1J5iQvkV_o_y3jbwGGamvmIsEh2gxNGi&s=10">
+                <h1>ECITIZEN</h1>
+            </div>
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRrvSF9e6QbxBUL2BPuaGitszKA3pLZCY24XF2feM0ZUvEbz-cAqdss-ny&s=10">
+                <h1>SHA</h1>
+            </div>
+            <div class="card">
+                <img src="https://dci.ecitizen.go.ke/files/local-download?name=DCI_logo.jpg&path=5ad02e7886d6f2c44dd5cc1d42165667b707f725.jpg">
+                <h1>GOOD CONDUCT</h1>
+            </div>
+        </section>
+     
+        <div class="service-grid">
+            <h1>Our Services</h1>
+            <div class="grid-card">
+                <img src="https://www.kra.go.ke/images/logo.png" height="150" width="200">
+                <h3>KRA Services</h3>
+                <p>Register for KRA pin,file taxes, or retrieve
+                    your PIN through the iTax portal
+                </p>
+                <div class="grid-buttons">
+                    <a href="#">Apply Now</a>
+                    <a href="#">Whatsapp</a>
+                </div>
+            </div>
+            <div class="grid-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyK20OElmP2tfCfD8_swu4CVVt1J5iQvkV_o_y3jbwGGamvmIsEh2gxNGi&s=10" alt="eCitizen logo">
+                <h3>eCitizen Services</h3>
+                <p>Access government services and applications through the eCitizen portal.</p>
+                <div class="grid-buttons">
+                    <a href="#">Apply Now</a>
+                    <a href="#">Whatsapp</a>
+                </div>
+            </div>
+            <div class="grid-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRrvSF9e6QbxBUL2BPuaGitszKA3pLZCY24XF2feM0ZUvEbz-cAqdss-ny&s=10" alt="SHA logo">
+                <h3>SHA Services</h3>
+                <p>Get help with registration and access to Social Health Authority services.</p>
+                <div class="grid-buttons">
+                    <a href="#">Apply Now</a>
+                    <a href="#">Whatsapp</a>
+                </div>
+            </div>
+            <div class="grid-card">
+                <img src="https://dci.ecitizen.go.ke/files/local-download?name=DCI_logo.jpg&amp;path=5ad02e7886d6f2c44dd5cc1d42165667b707f725.jpg" alt="Good Conduct logo">
+                <h3>Good Conduct</h3>
+                <p>Apply for a certificate of good conduct through the official portal.</p>
+                <div class="grid-buttons">
+                    <a href="#">Apply Now</a>
+                    <a href="#">Whatsapp</a>
+                </div>
+            </div>
+            <div class="grid-card">
+                <img src="https://upload.wikimedia.org/wikipedia/en/e/e2/NSSF_Kenya_Logo.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original">
+                <h3>NSSF Services</h3>
+                <p>Register as an NSSF member or request a statement online.</p>
+                <div class="grid-buttons">
+                    <a href="#">Apply Now</a>
+                    <a href="#">Whatsapp</a>
+                </div>
+            </div>
+            <div class="grid-card">
+                <img src="https://scale.co.ke/blog/wp-content/uploads/2025/06/KRA-eTims--793x397.jpg">
+                <h3>eTIMS Registration & Invoice</h3>
+                <p>Register for ETMS and generate invoices for your business</p>
+                <div class="grid-buttons">
+                    <a href="#">Apply Now</a>
+                    <a href="#">Whatsapp</a>
+                </div>
+            </div>
+            <a class="view-services-button" href="#services">View All Services</a>
+        </div>
+    <script>
+        document.querySelectorAll('a[href]').forEach(function (link) {
+            link.addEventListener('click', function (event) {
+                var destination = link.getAttribute('href');
+
+                if (!destination || destination === '#' || destination.charAt(0) === '#' || link.target === '_blank') {
+                    return;
+                }
+
+                event.preventDefault();
+                document.body.classList.add('page-fade-out');
+                window.setTimeout(function () {
+                    window.location.href = destination;
+                }, 350);
+            });
+        });
+    </script>
+</body>
+</html>
